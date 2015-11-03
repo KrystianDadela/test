@@ -3,21 +3,23 @@ import java.io.*;
 import java.util.*;
 
 public class GenerateFixtures {
-    public static void main(String[] args) throws IOException {
+
+
+    public static  void GenerateTable() throws IOException {
+
         int numberOfTeams, totalNumberOfRounds, numberOfMatchesPerRound;
         int homeTeamNumber, awayTeamNumber, even, odd, roundNumber, matchNumber;
-
-        Sport user1 = new Sport();
 
 
         String[][] fixtures;
         String[][] revisedFixtures;
         String[] elementsOfFixture;
         String fixtureAsText;
-/**********************************************************************************************************************/
+
+
 
         //Checking how many teams are in the file.
-        BufferedReader br = new BufferedReader(new FileReader("\\testing.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("./src/main/java/testing.txt"));
         String line;
         int count = 0;
         List<String> temps = new ArrayList<String>();
@@ -29,19 +31,16 @@ public class GenerateFixtures {
             count++;
         }
         br.close();
-        System.out.println("Number of Teams: " + count);
+        //System.out.println("Number of Teams: " + count);
 
         for (int index = 0; index < count; index++) {
             System.out.println(temps.get(index));
         }
 
+
+
+        //Algorithm to get fixtures
         numberOfTeams = count;
-
-/**********************************************************************************************************************/
-
-
-
-
         totalNumberOfRounds = numberOfTeams - 1;
         numberOfMatchesPerRound = numberOfTeams / 2;
 
@@ -51,19 +50,15 @@ public class GenerateFixtures {
         for (roundNumber = 0; roundNumber < totalNumberOfRounds; roundNumber++) {
             for (matchNumber = 0; matchNumber < numberOfMatchesPerRound; matchNumber++) {
 
-
-                //Algorithm to get fixtures
-
-
                 homeTeamNumber = (roundNumber + matchNumber) % (numberOfTeams - 1);
                 awayTeamNumber = (numberOfTeams - 1 - matchNumber + roundNumber) % (numberOfTeams - 1);
                 if (matchNumber == 0)
                     awayTeamNumber = numberOfTeams - 1;
 
                 fixtures[roundNumber][matchNumber] = (homeTeamNumber + 1) + " v " + (awayTeamNumber + 1);
-/**********************************************************************************************************************/
 
-            //names from file instead of numbers
+
+                //names from file instead of numbers
 
                 for (int index = 0; index < count; index++) {
                     //System.out.println(temps.get(index));
@@ -72,7 +67,6 @@ public class GenerateFixtures {
                     fixtures[roundNumber][matchNumber] = (temps.get(homeTeamNumber)) + " v " + (temps.get(awayTeamNumber));
 
                 }
-/**********************************************************************************************************************/
 
 
             }
