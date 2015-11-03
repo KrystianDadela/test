@@ -19,6 +19,8 @@ public class GenerateFixtures {
 
 
         //Checking how many teams are in the file.
+        PrintWriter out = (new PrintWriter(new BufferedWriter(new FileWriter("./src/main/java/table.txt", true))));
+
         BufferedReader br = new BufferedReader(new FileReader("./src/main/java/testing.txt"));
         String line;
         int count = 0;
@@ -64,7 +66,7 @@ public class GenerateFixtures {
                     //System.out.println(temps.get(index));
 
 
-                    fixtures[roundNumber][matchNumber] = (temps.get(homeTeamNumber)) + " v " + (temps.get(awayTeamNumber));
+                    fixtures[roundNumber][matchNumber] = (temps.get(homeTeamNumber)) + " v " + (temps.get(awayTeamNumber)+ ";");
 
                 }
 
@@ -92,16 +94,25 @@ public class GenerateFixtures {
         }
 
         for (roundNumber = 0; roundNumber < totalNumberOfRounds; roundNumber++) {
+
+           // PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("./src/main/java/table.txt", true)));
+
+
+            out.println("Round " + (roundNumber + 1) + "\t\t");
             System.out.println("Round " + (roundNumber + 1) + "\t\t");
             for (matchNumber = 0; matchNumber < numberOfMatchesPerRound; matchNumber++) {
 
-
+                out.println("\tMatch " + (matchNumber + 1) + ": "
+                        + fixtures[roundNumber][matchNumber] + "\t");
                 System.out.println("\tMatch " + (matchNumber + 1) + ": "
                         + fixtures[roundNumber][matchNumber] + "\t");
                 System.out.println();
-            }
-        }
+                out.println();
 
+            }
+
+        }
+        out.close();
     }
 }
 
