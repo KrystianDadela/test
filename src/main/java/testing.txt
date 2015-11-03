@@ -1,10 +1,20 @@
-Liverpool
-Manchester United
-Chelsea
-Everton
-Southampton
-Manchester City
-Sunderland
+AFC Bournemouth
 Arsenal
-Limerick
-Kilmallock
+Aston Villa
+Chelsea
+Crystal Palace
+Everton
+Leicester City
+Liverpool
+Manchester City
+Manchester United
+Newcastle United
+Norwich City
+Southampton
+Stoke City
+Sunderland
+Swansea City
+Tottenham Hotspur
+Watford
+West Bromwich Albion
+West Ham United
