@@ -19,7 +19,7 @@ public class GenerateFixtures {
 
 
         //Checking how many teams are in the file.
-        PrintWriter out = (new PrintWriter(new BufferedWriter(new FileWriter("./src/main/java/table.txt", true))));
+        PrintWriter out = (new PrintWriter(new BufferedWriter(new FileWriter("./src/main/java/table.txt"))));
 
         BufferedReader br = new BufferedReader(new FileReader("./src/main/java/testing.txt"));
         String line;
